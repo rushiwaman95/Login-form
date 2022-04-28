@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regustrtion form</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ajax-bootstrap-select/1.4.5/js/ajax-bootstrap-select.min.js" integrity="sha512-HExUHcDgB9r00YwaaDe5z9lTFmTChuW9lDkPEnz+6/I26/mGtwg58OHI324cfqcnejphCl48MHR3SFQzIGXmOA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Registration Form </h2>
+        <div class="form-container">
+            <form method="post" id="contactForm" name="contactForm">
+                <div class="input-name">
+                    <i class="fa fa-user lock" aria-hidden="true"></i>
+                    <input type="text" placeholder="First Name" required class="name">
+
+                    <span>
+                        <i class="fa fa-user lock" aria-hidden="true"></i>
+                        <input type="text" placeholder="Last Name" required class="name">
+                    </span>
+                </div>
+                <div class="input-name">
+                    <i class="fa fa-envelope email " aria-hidden="true"></i>
+                    <input type="email" placeholder="E-Mail" required class="text-name">
+                </div>
+
+                <div class="input-name">
+                    <i class="fa fa-lock lock" aria-hidden="true"></i>
+                    <input type="password" placeholder="Password" required class="text-name">
+                </div>
+                <div class="input-name">
+                    <i class="fa fa-lock lock " aria-hidden="true"></i>
+                    <input type="password" placeholder="Comfirm Password" required class="text-name">
+                </div>
+                <div class="input-name">
+                    <input type="radio" name="r1" value="Male" class="radio">
+                    <label style="margin-right:30px;">Male</label>
+
+                    <input type="radio" name="r1" value="Female" class="radio">
+                    <label>Female</label>
+                </div>
+                <div class="input-name">
+                    <select required class="country ">
+                        <option selected>select a country...</option>
+                        <option>India </option>
+                        <option>Japan </option>
+                        <option>Russia </option>
+                        <option>China </option>
+                        <option>South Korea </option>
+                    </select>
+                    <div class="arrow"></div>
+                </div>
+                <div class="input-name">
+                    <input type="checkbox" class="check-button" name="">
+                    <label for="check-button" class="check">I Agree with terms and conditions.</label>
+                </div>
+                <div class="input-name">
+                    <input type="submit" class="button" value="Register">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        jQuery('#contactForm') .on('submit',function(e){
+            jQuery.ajax({
+                url:'submit.php',
+                type:'post',
+                data:jQuery('#contactForm').serialize(),
+                success:function(result){
+                    alert('Form Submited Successfully');
+                }
+            })
+            e.preventDefault();
+        })
+    </script>
+</body>
+</html>
